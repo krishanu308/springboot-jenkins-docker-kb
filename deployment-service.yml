@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service  # kubernetes resource kind we are creating
+metadata:      # Metadata of the resources kind we are creating
+  name: springboot-jen-dock-kb-service
+spec:
+   type: NodePort
+   ports:
+     - port: 8080  # the port that the service is running on in the cluster
+       targetPort: 8080  # the port exposed by the service
+       protocol: "TCP"
+   selector:
+     app: springboot-jen-dock-k8s

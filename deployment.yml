@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-jen-dock-k8s
+  labels:
+    app: springboot-jen-dock-k8s
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: springboot-jen-dock-k8s
+  template:
+    metadata:
+      labels:
+        app: springboot-jen-dock-k8s
+    spec:
+      containers:
+        - name: springboot-jen-dock-k8s
+          image: springboot-jenkins-docker-kb:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+     
