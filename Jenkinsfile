@@ -6,7 +6,7 @@ pipeline {
 		stages{
 			stage('Build Dcoker Image'){
 				steps{
-					sh "docker build -t krishanu/springboot-jenkins-docker-kb:${DOCKER_TAG}"	
+					sh "docker build . -t krishanu/springboot-jenkins-docker-kb:${DOCKER_TAG}"	
 				}
 			}
 		}
