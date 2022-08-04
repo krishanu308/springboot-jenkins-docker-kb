@@ -3,7 +3,12 @@ pipeline {
 	environment{
 		DOCKER_TAG = getDockerTag()
 	}
+	
 		stages{
+			stage('Initialize'){
+        		def dockerHome = tool 'myDocker'
+        		env.PATH = "${dockerHome}/bin:${env.PATH}"
+    		}
 			stage('Build Dcoker Image'){
 				steps{
 					sh "docker build . -t krishanu/springboot-jenkins-docker-kb:${DOCKER_TAG}"	
